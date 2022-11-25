@@ -52,28 +52,20 @@ void PrintMatrix(int[,] matrix)
 
 int[,] SortDescend(int[,] matrix)
 {
-    for (int i = 0; i < matrix.GetLength(0); i++)
-    {
-        int max = matrix[i, 0];
-        int maxj = 0;
-        int temp = 0;
-        for (int j = 1; j < matrix.GetLength(1); j++)
-        {
-            if (matrix[i, j] > max)
-            {
-                temp = matrix[i, j];
-                matrix[i, j] = matrix[i, maxj];
-                matrix[i, maxj] = temp;
-            }
-            
-            if (matrix[i, j] > matrix[i, j - 1])
-            {
-                temp = matrix[i, j];
-                matrix[i, j] = matrix[i, j - 1];
-                matrix[i, j - 1] = matrix[i, j];
-            }
-        }
-    }
-    return matrix;
-}
+for (int i = 0; i < matrix.GetLength(0); i++)
+{
+for (int j = 0; j < matrix.GetLength(1); j++)
+{
 
+        for (int k = 0; k < matrix.GetLength(1)-1; k++)
+            if (matrix[i, k] < matrix[i, k+1])
+            {
+                int max = matrix[i, k+1];
+                matrix[i, k+1] = matrix[i, k];
+                matrix[i, k] = max;
+
+            }
+    }
+}
+return matrix;
+}
